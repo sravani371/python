@@ -53,6 +53,18 @@ s="hello"
 s=reduce(lambda x,y:x+"@"+y,s)
 print(s)
 
+l=[1,2,3,4,5,6]
+s=reduce(lambda x,y:x*y,l)
+print(s)
+
+def register(age,name="Alice", country="india"):
+    return age,name,country
+print(register(21))
+
+
+
+
+
 
 
 

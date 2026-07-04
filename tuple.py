@@ -1,8 +1,8 @@
 point = (10, 20)
-x, y = point             # Tuple unpacking
+x, y = point
 print(x)
 
-#if condition\
+#if condition
 a=10
 if(a%2==0):
     print("odd")

@@ -1,14 +1,4 @@
-a=10
-b=20
-c=input()
-if(c=='+'):
-    print(a+b)
-elif(c=='-'):
-    print(a-b)
-elif(c=='*'):
-    print(a*b)
-elif(c=='/'):
-    print(a/b)
-else:
-    print("INVALID INPUT")
-
+a=13
+b=91
+if(a<=0):
+    print("INvalid input")
