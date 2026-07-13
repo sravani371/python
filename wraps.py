@@ -20,3 +20,4 @@ print(fun(10,24))
 print(fun.__name__)
 print(fun.__annotations__)
 print(fun.__doc__)
+
