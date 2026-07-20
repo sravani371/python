@@ -1,4 +1,3 @@
-# 1.student
 class Student:
     def __init__(self, name, marks):
         self.name = name
@@ -104,10 +103,117 @@ class Temperature:
         print("Temperature in Fahrenheit:", Temperature.to_fahrenheit(self.celsius), "°F")
 
 
-# Create object
 t1 = Temperature(30)
-
-# Show conversion
 t1.show_conversion()
+
+
+#7
+class Product:
+    # Class attribute
+    tax_rate = 10  # 10%
+
+    # Constructor
+    def __init__(self, name, base_price):
+        self.name = name
+        self.base_price = base_price
+
+    # Instance method
+    def final_price(self):
+        tax = (self.base_price * Product.tax_rate) / 100
+        return self.base_price + tax
+
+    # Class method
+    @classmethod
+    def change_tax_rate(cls, new_rate):
+        cls.tax_rate = new_rate
+
+    # Static method
+    @staticmethod
+    def is_valid_price(price):
+        return price >= 0 and price <= 1000000
+
+
+# Creating multiple products
+product1 = Product("Laptop", 50000)
+product2 = Product("Mobile", 20000)
+product3 = Product("Headphones", -500)
+
+print("Initial Tax Rate:", Product.tax_rate, "%")
+
+print("\nProduct Prices:")
+print(product1.name, "Final Price =", product1.final_price())
+print(product2.name, "Final Price =", product2.final_price())
+
+# Validity Check
+print("\nPrice Validity:")
+print(product1.name, ":", Product.is_valid_price(product1.base_price))
+print(product2.name, ":", Product.is_valid_price(product2.base_price))
+print(product3.name, ":", Product.is_valid_price(product3.base_price))
+
+# Change tax rate
+Product.change_tax_rate(18)
+
+print("\nUpdated Tax Rate:", Product.tax_rate, "%")
+
+print("\nUpdated Product Prices:")
+print(product1.name, "Final Price =", product1.final_price())
+print(product2.name, "Final Price =", product2.final_price())
+
+#8.
+class Inventory:
+    # Class attributes
+    total_items = 0
+    threshold = 20
+
+    def __init__(self):
+        # Instance attribute
+        self.stock = {}
+
+    def add(self, item, qty):
+        if Inventory.valid(qty):
+            self.stock[item] = qty
+            print("Item added successfully")
+            Inventory.total_items += 1
+        else:
+            print("Quantity should reach minimum threshold")
+
+    @staticmethod
+    def valid(q):
+        return q >= Inventory.threshold
+
+    def remove(self, item):
+        if item in self.stock:
+            self.stock.pop(item)
+            print(f"{item} removed from inventory")
+            Inventory.total_items -= 1
+        else:
+            print("Item not found")
+
+#9.
+class Course:
+    total = 0
+    min_duration = 3
+
+    def __init__(self, title, dur, est):
+        self.title = title
+        self.duration = duration
+        self.enrolled_student = est
+        Course.total += 1
+
+    def enroll(self, n):
+        self.enrolled_student += n
+
+    @classmethod
+    def update(cls, nd):
+        cls.min_duration = nd
+        print("minimum duration updates")
+
+    @staticmethod
+    def valid(d):
+        return d >= 3
+
+
+
+
 
 
