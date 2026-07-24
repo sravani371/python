@@ -1,6 +1,8 @@
 #1.
 from sys import displayhook
 
+from methods import Inventory
+
 
 class Student:
     total = 0
@@ -90,21 +92,74 @@ print(v1-v2)
 print(v1%v2)
 print(v1*v2)
 
-#6.
-class A:
-    def __init__(self, x):
+
+#7.
+class ShoppingCart:
+    def __init__(self):
+        self.cart = []
+
+    def add(self, item):
+        self.cart.append(item)
+
+    def __add__(self, other):
+        self.cart.append(other)
+        return self
+
+    def __repr__(self):
+        return f"ShoppingCart({self.cart})"
+
+c1 = ShoppingCart()
+c2 = ShoppingCart()
+
+c1.add("hello" "world")
+c2.add("world" "hello")
+print(c1+c2)
+
+l = [c1, c2]
+
+print(l)
+# extrend only add like elements
+#eg.
+class inventory:
+    def __init__(self,l):
+        self.Iv = l
+    def add(self,item):
+        self.Iv.extend(item)
+    def __add__(self,o2):
+        k=self.Iv+o2.Iv
+        return inventory(k)
+    def __str__(self):
+        return str(self.Iv)
+    def __repr__(self):
+        return f"inventory({self.Iv})"
+
+i1=inventory([])
+i2=inventory([])
+i3=inventory([])
+i1.add(["kinderjoy"])
+i2.add(["maagie"])
+i3.add(["yellow"])
+I4=i1+i2+i3
+print(I4.Iv)
+
+
+class vector:
+    def __init__(self, x, y):
         self.x = x
         self.y = y
-        A.display(self)
+    def __add__(self,o2):
+        x=self.x + o2.x
+        y=self.y + o2.y
+        return vector(x,y)
+    def __repr__(self):
+        return f"vector({self.x},{self.y})"
 
-    def display(self):
-        return (self.x, self.y)
+v1=vector(1, 2)
+v2=vector(2, 3)
+v3=vector(3, 4)
+v4=v1+v2+v3
+print(v4)
 
-a1 = A(1, 2)
-a2 = A(7, 8)
-
-a1.display()
-a2,display()
 
 
 
